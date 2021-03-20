@@ -9,8 +9,8 @@ int circleY = 249;
 int moveUp = 0;
 int playerPoints = 0;
 int cpuPoints = 0;
-int dirX = 1;
 int dirY = 1;
+int dirX = 1;
 
 void setup(){
     size(500,500);
@@ -68,25 +68,23 @@ void cpuMove(){
 }
 
 void ballMove(){
-    circleX -= dirX;
-    circleY -= dirY;
-    if (circleX > width || circleX < 0){
-        dirX = dirX * -1; 
-    }
-    if (circleY > height || circleY < 0){
-        dirY = dirY * -1;
-    }
-    if (circleX == userX) {
-        dirX = dirX * -1;
-    }
-
-
-
+  circleX = cricleX + dirX;
+  circleY  = circleY + dirY;
+  if (circleX > width || circleX < 0){
+    if (dirx > 0)
+      dirx = -1;
+    else 
+      dirx = 1;
+  }
+  if (circleY > height || circleY < 0){
+    if (diry > 0)
+      diry = -1;
+    else 
+      diry = 1;
+  }
     if(circleX <= 50){
         cpuPoints++;
         println("CPU Points++");
-        fill(255);
-        text(playerPoints, 100, 100,100);
         circleX = 249;
         circleY = 249;
     }else if(circleX >= 450){
